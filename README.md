@@ -60,11 +60,11 @@ Value is not `true`:
 The object you are testing should be a simple data structure. The library does not support `this` binding on purpose. If you want to include behaviour, use functions.
 
 ### Code coverage
-If a property is accessed (or a function called) only under certain conditions and your test setup does not trigger them, then your test will fail.
+If a member is accessed or called only under certain conditions and your test setup does not trigger them, then your test will fail.
 
-An exception to this rule is if you destructure members of your object which are used conditionally:
+An exception to this rule is if you unconditionally access members which are used conditionally:
 ```javascript
-const notGreat = ({ width, color }) => { // <- color is always accessed
+const notRecommended = ({ width, color }) => { // <- color is always accessed
     if(width > Infinity) setColor(color) // <- but is never used
 }
 ```
@@ -73,28 +73,7 @@ const notGreat = ({ width, color }) => { // <- color is always accessed
 
 If your object has members which are no longer used, then the test will fail.
 
-```javascript
-const getViewModel = (data, conf) => {
-    [...]
-    const shouldDoY = Math.max(...data) > conf.max;
-    return { data, x, y, color, shouldDoX, shouldDoY }
-    //                           exported  ---------
-}
-```
-```javascript
-const draw = ({ data, x, y, color, shouldDoX }) => {
-    // unused   ----------------------------
-}
-```
-```
-Value is not `true`:
-
-{
-  'not accessed': [
-      'shouldDoY'
-  ]
-}
-```
+In our viewModel example: maybe `shouldDoX` should have been used in `draw`, or maybe it should have been removed from the viewModel. The two possibilities are conflated.
 
 ## Observations
 
