@@ -1,6 +1,6 @@
 {
     "name": "exhausted",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "description": "Test that you have accessed all the properties and called all the functions of an arbitrarily deep object.",
     "author": "Geoffrey Gourdet",
     "license": "ISC",
