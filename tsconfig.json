@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "outDir": "./dist",
+        "moduleResolution": "nodenext",
+        "module": "es2022",
+        "target": "ESNext",
+        "esModuleInterop": true,
+        "declaration": true
+    },
+    "files": ["src/index.ts"],
+    "ts-node": {
+		"transpileOnly": true
+	}
+}

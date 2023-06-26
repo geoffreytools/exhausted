@@ -1,0 +1,40 @@
+{
+    "name": "exhausted",
+    "version": "0.0.0",
+    "description": "Test that you have accessed all the properties and called all the functions of an arbitrarily deep object.",
+    "author": "Geoffrey Gourdet",
+    "license": "ISC",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/geoffreytools/exhausted.git"
+    },
+    "bugs": {
+        "url": "https://github.com/geoffreytools/exhausted/issues"
+    },
+    "homepage": "https://github.com/geoffreytools/exhausted#readme",
+    "main": "./dist/index.js",
+    "type": "module",
+    "files": [
+        "dist/*"
+    ],
+    "scripts": {
+        "test": "ava --tap | slim-reporter verbose",
+        "coverage": "c8 ava",
+        "build": "tsc"
+    },
+    "ava": {
+        "extensions": {
+            "ts": "module"
+        },
+        "nodeArguments": [
+            "--loader=ts-node/esm"
+        ]
+    },
+    "devDependencies": {
+        "ava": "^5.3.1",
+        "c8": "^8.0.0",
+        "slim-reporter": "github:geoffreyTools/slim-reporter",
+        "ts-node": "^10.9.1",
+        "typescript": "^5.1.3"
+    }
+}
