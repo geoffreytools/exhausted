@@ -5,7 +5,7 @@ const val = null;
 const fn = () => { };
 
 
-test('fails when deep properties are not accessed', t => {
+test('show paths to members which were not accessed', t => {
     const deep = { a: val, b: { hello: val }, c: val };
     const mock = instrument(deep);
 
@@ -16,7 +16,7 @@ test('fails when deep properties are not accessed', t => {
 })
 
 
-test('fails when functions are not called', t => {
+test('show paths to members which were not called in a distinct record', t => {
     const deep = { a: fn, b: { hello: fn }, c: fn };
     const mock = instrument(deep);
 
